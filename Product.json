@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ARX001",
+    "name": "Classic Tote",
+    "price": "₦48,000",
+    "stock": 5,
+    "image": "https://via.placeholder.com/400x400.png?text=Classic+Tote"
+  },
+  {
+    "id": "ARX002",
+    "name": "Mini Clutch",
+    "price": "₦25,000",
+    "stock": 8,
+    "image": "https://via.placeholder.com/400x400.png?text=Mini+Clutch"
+  },
+  {
+    "id": "ARX003",
+    "name": "Leather Crossbody",
+    "price": "₦35,000",
+    "stock": 10,
+    "image": "https://via.placeholder.com/400x400.png?text=Crossbody+Bag"
+  }
+]
