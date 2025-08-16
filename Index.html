@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARIX</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      background: linear-gradient(135deg, #ffecd2, #fcb69f, #a1c4fd, #c2e9fb); 
+      margin: 0; 
+      padding: 0; 
+    }
+    header { 
+      background: black; 
+      color: gold; 
+      padding: 20px; 
+      text-align: center; 
+      font-size: 36px; 
+      font-weight: bold; 
+      letter-spacing: 3px;
+    }
+    .products { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 20px; 
+      padding: 20px; 
+      justify-content: center; 
+    }
+    .card { 
+      background: white; 
+      border-radius: 16px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+      width: 260px; 
+      padding: 15px; 
+      text-align: center; 
+      transition: transform 0.2s ease-in-out; 
+    }
+    .card:hover { 
+      transform: scale(1.05); 
+    }
+    .card img { 
+      width: 100%; 
+      height: auto; 
+      border-radius: 12px; 
+    }
+    .name { 
+      font-size: 20px; 
+      font-weight: bold; 
+      margin: 10px 0; 
+      color: #333; 
+    }
+    .price { 
+      color: #28a745; 
+      font-size: 18px; 
+      margin: 5px 0; 
+    }
+    .stock { 
+      font-size: 14px; 
+      color: gray; 
+      margin-bottom: 10px; 
+    }
+    .whatsapp { 
+      background: #25D366; 
+      color: white; 
+      padding: 12px; 
+      border-radius: 8px; 
+      text-decoration: none; 
+      display: inline-block; 
+      font-weight: bold; 
+    }
+    .whatsapp:hover {
+      background: #1ebe5b;
+    }
+  </style>
+</head>
+<body>
+  <header>ARIX</header>
+  <div class="products" id="products"></div>
+
+  <script>
+    async function loadProducts() {
+      const response = await fetch('products.json'); // fetch product data
+      const products = await response.json();
+      const container = document.getElementById('products');
+      container.innerHTML = "";
+
+      products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <div class="name">${product.name}</div>
+          <div class="price">${product.price}</div>
+          <div class="stock">Stock: ${product.stock}</div>
+          <a class="whatsapp" href="https://wa.me/234XXXXXXXXXX?text=Hi, I'm interested in the ${product.name} for ${product.price}" target="_blank">Order on WhatsApp</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    loadProducts();
+  </script>
+</body>
+</html>
